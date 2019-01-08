@@ -1,0 +1,64 @@
+package diamant;
+import java.util.Scanner;
+public class diamanti {
+
+	public static void main(String[] args) {
+		        int n;
+		        do {
+		            System.out.print("Enter value [4...32]: ");
+		            n = (new Scanner(System.in)).nextInt();
+		        } while(n < 4 || n > 32);
+		        printFirstPart(n);
+		        printSecondPart(n);
+		    }
+		 
+		    private static void printFirstPart(int n) {
+		        //First part
+		        int innerDots = 0;
+		        for (int i = 1; i < n; i++) {
+		            printDots(n - i);
+		            printStars(1);
+		            if (i == 1) {
+		                printStars(n * 3);
+		            } else {
+		                printDots(n * 3 + innerDots);
+		            }
+		            printStars(1);
+		            printDots(n - i);
+		            System.out.println();
+		            innerDots += 2;
+		        }
+		    }
+		 
+		    private static void printSecondPart(int n) {
+		        //Middle line
+		        printStars(n * 5);
+		        System.out.println();
+		 
+		        //Second part
+		        int innerDots = (n * 5) - 4;
+		        for (int i = 1; i <= (n * 2) + 1; i++) {
+		            printDots(i);
+		            printStars(1);
+		            if (i <= n * 2) {
+		                printDots(innerDots);
+		            } else {
+		                printStars(innerDots);
+		            }
+		            printStars(1);
+		            printDots(i);
+		            System.out.println();
+		            innerDots -= 2;
+		        }
+		    }
+		 
+		    private static void printDots(int numberOfDots) {
+		        for (int i = 0; i < numberOfDots; i++) System.out.print(".");
+		    }
+		 
+		    private static void printStars(int numberOfStars) {
+		        for (int i = 0; i < numberOfStars; i++) System.out.print("*");
+		    }
+		
+
+	}
